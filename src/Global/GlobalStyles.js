@@ -24,5 +24,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     color: ${({ theme }) => theme.colors.textColor};
     background-color: ${({ theme }) => theme.colors.bodyColor};
+    font-family: 'Cairo', sans-serif;
   }
 `;
