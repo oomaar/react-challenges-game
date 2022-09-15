@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { lgScreen, xlScreen } from "../../Global/GlobalStyles";
 
-export const HomeContainer = styled.div``;
-
 export const HomeNavbar = styled.nav`
   display: flex;
   justify-content: space-around;
@@ -16,14 +14,36 @@ export const HomeNavbar = styled.nav`
 `;
 
 export const HomeLogo = styled.div`
+  cursor: pointer;
+
   h1 {
+    font-size: 2rem;
     display: flex;
     align-items: center;
-    font-size: 2rem;
     color: ${({ theme }) => theme.colors.titleColor};
+    transition: ${({ theme }) => theme.transition.fast};
+    margin: 0;
 
     i {
       margin-right: 0.3rem;
+      transition: ${({ theme }) => theme.transition.fast};
+      position: relative;
+    }
+
+    :hover i {
+      transform: rotate(360deg);
+    }
+
+    span {
+      overflow: hidden;
+      opacity: 0;
+      transition: ${({ theme }) => theme.transition.fast};
+    }
+
+    :hover span {
+      width: auto;
+      overflow: visible;
+      opacity: 1;
     }
   }
 `;

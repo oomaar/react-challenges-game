@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  HomeContainer,
   HomeNavbar,
   HomeLogo,
   HomeLinksList,
@@ -14,12 +13,12 @@ export const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <HomeContainer>
+    <div>
       <HomeNavbar>
         <HomeLogo>
           <h1>
             <i className="bx bxl-react" />
-            Games
+            <span>Games</span>
           </h1>
         </HomeLogo>
         <HomeNavButton onClick={() => setShowMenu(true)}>
@@ -43,6 +42,6 @@ export const Home = () => {
           </HomeLinksListItem>
         </HomeLinksList>
       </HomeNavbar>
-    </HomeContainer>
+    </div>
   );
 };
