@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lgScreen, mdScreen, xlScreen } from "../../Global/GlobalStyles";
+import { lgScreen, xlScreen } from "../../Global/GlobalStyles";
 
 export const HomeContainer = styled.div``;
 
