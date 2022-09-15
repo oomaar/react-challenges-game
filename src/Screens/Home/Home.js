@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   HomeContainer,
@@ -5,16 +6,26 @@ import {
   HomeLogo,
   HomeLinksList,
   HomeLinksListItem,
+  HomeNavButton,
+  CloseButton,
 } from "./styledHome";
 
 export const Home = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <HomeContainer>
       <HomeNavbar>
         <HomeLogo>
           <h1>React Games</h1>
         </HomeLogo>
-        <HomeLinksList>
+        <HomeNavButton onClick={() => setShowMenu(true)}>
+          <i className="bx bx-menu" />
+        </HomeNavButton>
+        <HomeLinksList showMenu={showMenu}>
+          <CloseButton>
+            <i className="bx bx-x" onClick={() => setShowMenu(false)} />
+          </CloseButton>
           <HomeLinksListItem>
             <Link to={`/twitter`}>Twitter Sidebar</Link>
           </HomeLinksListItem>
