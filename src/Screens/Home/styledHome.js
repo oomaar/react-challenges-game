@@ -17,7 +17,14 @@ export const HomeNavbar = styled.nav`
 
 export const HomeLogo = styled.div`
   h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
     color: ${({ theme }) => theme.colors.titleColor};
+
+    i {
+      margin-right: 0.3rem;
+    }
   }
 `;
 

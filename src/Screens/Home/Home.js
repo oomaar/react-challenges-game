@@ -17,7 +17,10 @@ export const Home = () => {
     <HomeContainer>
       <HomeNavbar>
         <HomeLogo>
-          <h1>React Games</h1>
+          <h1>
+            <i className="bx bxl-react" />
+            Games
+          </h1>
         </HomeLogo>
         <HomeNavButton onClick={() => setShowMenu(true)}>
           <i className="bx bx-menu" />
