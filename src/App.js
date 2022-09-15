@@ -3,8 +3,10 @@ import {
   Routes,
   Route,
   Navigate,
+  Outlet,
 } from "react-router-dom";
 import { Nav } from "./Componetns";
+import { Layout } from "./Global/Layout/Layout";
 import { Home, TwitterSidebar } from "./Screens";
 
 export const App = () => {
@@ -12,7 +14,16 @@ export const App = () => {
     <div>
       <Router basename="/">
         <Routes>
-          <Route element={<Nav />}>
+          <Route
+            element={
+              <>
+                <Nav />
+                <Layout>
+                  <Outlet />
+                </Layout>
+              </>
+            }
+          >
             <Route path="/" element={<Home />} />
             <Route path="/twitter" element={<TwitterSidebar />} />
             <Route path="*" element={<Navigate to="/" />} />
