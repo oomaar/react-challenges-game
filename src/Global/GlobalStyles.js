@@ -8,6 +8,11 @@ export const theme = {
     borderColor: "#1d2022",
     bodyColor: "#000000",
   },
+  transition: {
+    fast: `all 0.3s ease-in`,
+    medium: `all 0.4s ease-in`,
+    slow: `all 0.5s ease-in`,
+  },
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -25,5 +30,22 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.textColor};
     background-color: ${({ theme }) => theme.colors.bodyColor};
     font-family: 'Cairo', sans-serif;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.textColor};
+
+    :hover, :active, :visited {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.textColor};
+
+    }
   }
 `;
