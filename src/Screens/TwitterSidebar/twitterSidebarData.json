@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "name": "Home",
+        "icon": "bx bxs-home-circle"
+    },
+    {
+        "id": "2",
+        "name": "Explore",
+        "icon": "bx bx-hash"
+    },
+    {
+        "id": "3",
+        "name": "Notifications",
+        "icon": "bx bx-bell"
+    },
+    {
+        "id": "4",
+        "name": "Messages",
+        "icon": "bx bx-envelope"
+    },
+    {
+        "id": "5",
+        "name": "Bookmarks",
+        "icon": "bx bx-bookmark"
+    },
+    {
+        "id": "6",
+        "name": "Lists",
+        "icon": "bx bx-file"
+    },
+    {
+        "id": "7",
+        "name": "Profile",
+        "icon": "bx bx-user"
+    },
+    {
+        "id": "8",
+        "name": "More",
+        "icon": "bx bx-dots-horizontal-rounded"
+    }
+]
