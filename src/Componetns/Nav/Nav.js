@@ -28,16 +28,16 @@ export const Nav = () => {
           <CloseButton>
             <i className="bx bx-x" onClick={() => setShowMenu(false)} />
           </CloseButton>
-          <NavLinksListItem>
+          <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/twitter`}>Twitter Sidebar</Link>
           </NavLinksListItem>
-          <NavLinksListItem>
+          <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/`}>Link 2</Link>
           </NavLinksListItem>
-          <NavLinksListItem>
+          <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/`}>Link 3</Link>
           </NavLinksListItem>
-          <NavLinksListItem>
+          <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/`}>Link 4</Link>
           </NavLinksListItem>
         </NavLinksList>
