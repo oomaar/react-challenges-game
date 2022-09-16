@@ -28,7 +28,8 @@ export const HeroTextContainer = styled.div`
   h1 {
     font-size: 3rem;
     width: 350px;
-    margin: 0;
+    margin: 0 0 1rem;
+    line-height: 4rem;
 
     span {
       color: ${({ theme }) => theme.colors.success};
@@ -58,6 +59,10 @@ export const HeroTextContainer = styled.div`
       width: 100%;
     }
   }
+
+  @media screen and (max-width: ${lgScreen}) {
+    text-align: center;
+  }
 `;
 
 export const HeroIconContainer = styled.div`
@@ -66,7 +71,7 @@ export const HeroIconContainer = styled.div`
   transform-origin: center center;
   -moz-animation: ${rotate} 5s infinite linear;
   -webkit-animation: ${rotate} 5s infinite linear;
-  animation: ${rotate} 5s infinite linear;
+  animation: ${rotate} 10s infinite linear;
   width: 200px;
   height: 200px;
   display: flex;
