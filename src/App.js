@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Nav } from "./Componetns";
 import { Layout } from "./Global/Layout/Layout";
-import { Home, TwitterSidebar } from "./Screens";
+import { Blog, Home, TwitterSidebar } from "./Screens";
 
 export const App = () => {
   return (
@@ -26,6 +26,7 @@ export const App = () => {
           >
             <Route path="/" element={<Home />} />
             <Route path="/twitter" element={<TwitterSidebar />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>

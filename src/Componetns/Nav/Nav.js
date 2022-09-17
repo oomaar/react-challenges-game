@@ -34,7 +34,7 @@ export const Nav = () => {
             <Link to={`/twitter`}>Twitter Sidebar</Link>
           </NavLinksListItem>
           <NavLinksListItem onClick={() => setShowMenu(false)}>
-            <Link to={`/`}>Link 2</Link>
+            <Link to={`/blog`}>Blog</Link>
           </NavLinksListItem>
           <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/`}>Link 3</Link>
