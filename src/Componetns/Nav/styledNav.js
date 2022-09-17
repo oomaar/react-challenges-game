@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lgScreen, xlScreen } from "../../Global/GlobalStyles";
+import { lgScreen, NavbarHeight, xlScreen } from "../../Global/GlobalStyles";
 
 export const NavNavbar = styled.nav`
   display: flex;
@@ -7,6 +7,7 @@ export const NavNavbar = styled.nav`
   align-items: center;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
+  height: ${NavbarHeight};
 
   @media screen and (max-width: ${xlScreen}) {
     justify-content: space-between;
