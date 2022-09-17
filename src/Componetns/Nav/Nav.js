@@ -16,10 +16,12 @@ export const Nav = () => {
     <div>
       <NavNavbar>
         <NavLogo>
-          <h1>
-            <i className="bx bxl-react" />
-            <span>Games</span>
-          </h1>
+          <Link to={`/`}>
+            <h1>
+              <i className="bx bxl-react" />
+              <span>Games</span>
+            </h1>
+          </Link>
         </NavLogo>
         <NavNavButton onClick={() => setShowMenu(true)}>
           <i className="bx bx-menu" />
