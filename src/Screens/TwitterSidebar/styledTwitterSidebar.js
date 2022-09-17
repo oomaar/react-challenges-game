@@ -1,16 +1,23 @@
 import styled from "styled-components";
+import { mdScreen, NavbarHeight } from "../../Global/GlobalStyles";
 
 export const TwitterAside = styled.aside`
   width: 250px;
-  height: 100vh;
+  height: calc(100vh - ${NavbarHeight});
   padding: 0.5rem;
   border-right: 2px solid ${({ theme }) => theme.colors.borderColor};
   color: ${({ theme }) => theme.colors.titleColor};
   position: fixed;
-  top: 0;
+  top: ${NavbarHeight};
   left: 0;
   background-color: ${({ theme }) => theme.colors.bodyColor};
-  z-index: ${({ theme }) => theme.index.top};
+  z-index: ${({ theme }) => theme.index.middle};
+  overflow-y: scroll;
+
+  @media screen and (max-width: ${mdScreen}) {
+    width: 100%;
+    right: 0;
+  }
 `;
 
 export const TwitterLogo = styled.div`
@@ -128,11 +135,12 @@ export const SidebarProfileTextContainer = styled.div`
 `;
 
 export const SidebarProfileOptions = styled.div`
-  position: absolute;
-  inset: 0;
+  position: fixed;
   top: unset;
-  bottom: 12rem;
+  bottom: 5rem;
+  width: 230px;
   padding: 0.3rem 0.5rem;
+  z-index: ${({ theme }) => theme.index.top};
   transition: ${({ theme }) => theme.transition.fast};
   background-color: ${({ theme }) => theme.colors.bodyColor};
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
