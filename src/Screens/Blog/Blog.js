@@ -1,10 +1,16 @@
+import { useState } from "react";
+import { BlogModal } from "./BlogModal/BlogModal";
 import { BlogAddNewButton, BlogContainer, BlogHeader } from "./styledBlog";
 
 export const Blog = () => {
+  const [showAddModal, setShowAddModal] = useState(false);
+
+  const addNewBlog = () => setShowAddModal(true);
+
   return (
     <BlogContainer>
       <BlogHeader>
-        <BlogAddNewButton>Add a Blog</BlogAddNewButton>
+        <BlogAddNewButton onClick={addNewBlog}>Add a Blog</BlogAddNewButton>
       </BlogHeader>
       {/* <h1>Blog</h1>
       <h1>
@@ -16,6 +22,10 @@ export const Blog = () => {
         less/show more)
       </h1>
       <h1>Body: simply the blogs body</h1> */}
+      <BlogModal
+        showAddModal={showAddModal}
+        setShowAddModal={setShowAddModal}
+      />
     </BlogContainer>
   );
 };
