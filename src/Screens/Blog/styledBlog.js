@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const BlogContainer = styled.div``;
 
-export const BlogHeader = styled.header`
+export const BlogPageHeader = styled.header`
   display: flex;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
+  padding-bottom: 1rem;
 `;
 
 export const BlogAddNewButton = styled.button`
@@ -24,3 +26,40 @@ export const BlogAddNewButton = styled.button`
     color: #000;
   }
 `;
+
+export const BlogPostContainer = styled.div`
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
+  margin: 1rem auto;
+  border-radius: 0.3rem;
+  padding: 0 1rem;
+  width: 1000px;
+`;
+
+export const BlogPostHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
+`;
+
+export const BlogPostTitle = styled.h3`
+  color: ${({ theme }) => theme.colors.titleColor};
+`;
+
+export const BlogPostIcons = styled.div`
+  display: flex;
+  gap: 0rem 1rem;
+  font-size: 1.5rem;
+
+  .bx-edit-alt {
+    color: ${({ theme }) => theme.colors.warning};
+    cursor: pointer;
+  }
+
+  .bxs-trash {
+    color: ${({ theme }) => theme.colors.alert};
+    cursor: pointer;
+  }
+`;
+
+export const BlogPostBody = styled.div``;
