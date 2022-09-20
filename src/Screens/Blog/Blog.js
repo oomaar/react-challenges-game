@@ -13,25 +13,31 @@ import {
 
 export const Blog = () => {
   const [showAddModal, setShowAddModal] = useState(false);
-
-  const addNewBlog = () => setShowAddModal(true);
-
-  const posts = [
+  const [posts, setPosts] = useState([
     {
-      id: "1",
       title: "Blog Post 1",
       body:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam earum possimus eius iste, libero maiores unde rerum architecto perferendis quas adipisci non eos quam repellendus molestias voluptatem dolor reprehenderit aliquid repudiandae odit error, mollitia rem id totam. Perspiciatis illo quo obcaecati ducimus ab impedit? Consequatur modi ipsum voluptates cumque officiis.",
     },
-  ];
+  ]);
+
+  const addNewBlog = () => setShowAddModal(true);
+
+  // const posts = [
+  //   {
+  //     title: "Blog Post 1",
+  //     body:
+  //       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam earum possimus eius iste, libero maiores unde rerum architecto perferendis quas adipisci non eos quam repellendus molestias voluptatem dolor reprehenderit aliquid repudiandae odit error, mollitia rem id totam. Perspiciatis illo quo obcaecati ducimus ab impedit? Consequatur modi ipsum voluptates cumque officiis.",
+  //   },
+  // ];
 
   return (
     <BlogContainer>
       <BlogPageHeader>
         <BlogAddNewButton onClick={addNewBlog}>Add a Blog</BlogAddNewButton>
       </BlogPageHeader>
-      {posts.map((post) => (
-        <BlogPostContainer key={post.id}>
+      {posts.map((post, id) => (
+        <BlogPostContainer key={id}>
           <BlogPostHeader>
             <BlogPostTitle>{post.title}</BlogPostTitle>
             <BlogPostIcons>
@@ -51,6 +57,7 @@ export const Blog = () => {
       <BlogModal
         showAddModal={showAddModal}
         setShowAddModal={setShowAddModal}
+        setPosts={setPosts}
       />
     </BlogContainer>
   );
