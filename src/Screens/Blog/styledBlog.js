@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lgScreen, xlScreen } from "../../Global/GlobalStyles";
 
 export const BlogContainer = styled.div``;
 
@@ -25,14 +26,27 @@ export const BlogAddNewButton = styled.button`
     background-color: ${({ theme }) => theme.colors.titleColor};
     color: #000;
   }
+
+  @media screen and (max-width: ${xlScreen}) {
+    margin: 0 2rem 0 auto;
+  }
+
+  @media screen and (max-width: ${lgScreen}) {
+    margin: 0 1rem 0 auto;
+    font-size: 1rem;
+  }
 `;
 
 export const BlogPostContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
   margin: 1rem auto;
   border-radius: 0.3rem;
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
   width: 1000px;
+
+  @media screen and (max-width: ${xlScreen}) {
+    width: 100%;
+  }
 `;
 
 export const BlogPostHeader = styled.div`
