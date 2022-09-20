@@ -4,10 +4,12 @@ import {
   BlogFormFooter,
   BlogModalBackdrop,
   BlogModalContainer,
+  BlogModalErrorText,
   BlogModalForm,
   BlogModalFormCloseIcon,
   BlogModalFormInput,
   BlogModalFormInputContainer,
+  BlogModalFormTextArea,
   BlogModalInputLabel,
   BlogSubmitButton,
 } from "./styledBlogModal";
@@ -15,6 +17,12 @@ import {
 export const BlogModal = ({ showAddModal, setShowAddModal, setPosts }) => {
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
+  const [formValidation, setFormValidation] = useState({
+    error: false,
+    message: "",
+  });
+  const resetFormValidation = () =>
+    setFormValidation({ error: false, message: "" });
 
   const newPost = [
     {
@@ -23,38 +31,68 @@ export const BlogModal = ({ showAddModal, setShowAddModal, setPosts }) => {
     },
   ];
 
-  const onPost = () => {
+  const handleCloseModal = () => {
+    resetFormValidation();
     setShowAddModal(false);
-    setPosts(newPost);
+  };
+
+  const onPost = () => {
+    if (postBody !== "" && postTitle === "") {
+      setFormValidation({ error: true, message: "Enter a title for the post" });
+    } else if (postBody === "" && postTitle !== "") {
+      setFormValidation({ error: true, message: "Enter a body for the post" });
+    } else if (postBody === "" && postTitle === "") {
+      setFormValidation({
+        error: true,
+        message: "Enter Title & Body for the post",
+      });
+    } else if (postBody !== "" && postTitle !== "" && !formValidation.error) {
+      resetFormValidation();
+      setShowAddModal(false);
+      setPosts(newPost);
+    }
+  };
+
+  const onTitleInputChange = (event) => {
+    setPostTitle(event.target.value);
+    resetFormValidation();
+  };
+
+  const onBodyInputChange = (event) => {
+    setHeight(event, "100px");
+    setPostBody(event.target.value);
+    resetFormValidation();
   };
 
   return (
     <BlogModalContainer showAddModal={showAddModal}>
-      <BlogModalBackdrop onClick={() => setShowAddModal(false)} />
+      <BlogModalBackdrop onClick={handleCloseModal} />
       <BlogModalForm onSubmit={(e) => e.preventDefault()}>
-        <BlogModalFormCloseIcon onClick={() => setShowAddModal(false)}>
+        <BlogModalFormCloseIcon onClick={handleCloseModal}>
           <i className="bx bx-x" />
         </BlogModalFormCloseIcon>
 
         <BlogModalFormInputContainer>
           <BlogModalInputLabel>Title</BlogModalInputLabel>
           <BlogModalFormInput
+            formValidation={formValidation.error}
             type="text"
             placeholder="Enter Blog Title..."
-            onChange={(e) => setPostTitle(e.target.value)}
+            onChange={onTitleInputChange}
           />
         </BlogModalFormInputContainer>
         <BlogModalFormInputContainer>
           <BlogModalInputLabel>Body</BlogModalInputLabel>
-          <textarea
-            onChange={(event) => {
-              setHeight(event, "100px");
-              setPostBody(event.target.value);
-            }}
+          <BlogModalFormTextArea
+            formValidation={formValidation.error}
+            onChange={onBodyInputChange}
             placeholder="Start typing..."
-          ></textarea>
+          ></BlogModalFormTextArea>
         </BlogModalFormInputContainer>
         <BlogFormFooter>
+          {formValidation.error && (
+            <BlogModalErrorText>{formValidation.message}</BlogModalErrorText>
+          )}
           <BlogSubmitButton type="submit" onClick={onPost}>
             Post
           </BlogSubmitButton>

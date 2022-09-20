@@ -29,6 +29,11 @@ export const BlogModalForm = styled.form`
   width: 500px;
 `;
 
+export const BlogModalErrorText = styled.p`
+  color: ${({ theme }) => theme.colors.alert};
+  font-size: 1rem;
+`;
+
 export const BlogModalFormCloseIcon = styled.div`
   position: absolute;
   right: 1rem;
@@ -43,23 +48,6 @@ export const BlogModalFormInputContainer = styled.div`
   flex-direction: column;
   margin: 1rem 0;
   width: 100%;
-
-  textarea {
-    outline: 0;
-    border: 1px solid ${({ theme }) => theme.colors.primaryColor};
-    border-radius: 0.3rem;
-    background: transparent;
-    resize: none;
-    color: ${({ theme }) => theme.colors.textColor};
-    width: 100%;
-    height: 100px;
-    padding: 1rem 0.4rem;
-    transition: ${({ theme }) => theme.transition.fast};
-
-    :focus {
-      border: 1px solid transparent;
-    }
-  }
 
   ::after {
     content: "";
@@ -82,7 +70,9 @@ export const BlogModalInputLabel = styled.label`
 `;
 
 export const BlogModalFormInput = styled.input`
-  border: 1px solid ${({ theme }) => theme.colors.primaryColor};
+  border: 1px solid
+    ${({ formValidation, theme }) =>
+      formValidation ? theme.colors.alert : theme.colors.primaryColor};
   border-radius: 0.3rem;
   background: transparent;
   padding: 1rem 0.4rem;
@@ -94,6 +84,25 @@ export const BlogModalFormInput = styled.input`
   :focus {
     border: 1px solid transparent;
     outline: 0;
+  }
+`;
+
+export const BlogModalFormTextArea = styled.textarea`
+  outline: 0;
+  border: 1px solid
+    ${({ formValidation, theme }) =>
+      formValidation ? theme.colors.alert : theme.colors.primaryColor};
+  border-radius: 0.3rem;
+  background: transparent;
+  resize: none;
+  color: ${({ theme }) => theme.colors.textColor};
+  width: 100%;
+  height: 100px;
+  padding: 1rem 0.4rem;
+  transition: ${({ theme }) => theme.transition.fast};
+
+  :focus {
+    border: 1px solid transparent;
   }
 `;
 
