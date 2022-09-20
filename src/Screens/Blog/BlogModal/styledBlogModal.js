@@ -26,6 +26,7 @@ export const BlogModalForm = styled.form`
   background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
   border-radius: 0.3rem;
+  width: 500px;
 `;
 
 export const BlogModalFormCloseIcon = styled.div`
@@ -41,7 +42,7 @@ export const BlogModalFormInputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
-  width: 500px;
+  width: 100%;
 
   textarea {
     outline: 0;
