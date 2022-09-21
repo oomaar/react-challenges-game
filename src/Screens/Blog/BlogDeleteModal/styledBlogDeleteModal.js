@@ -28,13 +28,14 @@ export const DeleteModalBody = styled.div`
   padding: 1rem;
   border-radius: 0.3rem;
   width: 500px;
+`;
 
-  p {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: ${({ theme }) => theme.colors.titleColor};
-  }
+export const DeleteModalText = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.titleColor};
+  margin: 1rem 0;
 `;
 
 export const DeleteIcon = styled.div`

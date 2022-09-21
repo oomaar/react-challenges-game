@@ -5,6 +5,7 @@ import {
   DeleteModalContainer,
   DeleteModalFooter,
   DeleteModalButton,
+  DeleteModalText,
 } from "./styledBlogDeleteModal";
 
 export const BlogDeleteModal = ({
@@ -19,12 +20,12 @@ export const BlogDeleteModal = ({
         onClick={() => setShowDeleteModal(false)}
       />
       <DeleteModalBody>
-        <p>
+        <DeleteModalText>
           Are you sure you want to delete {`This`} Blog
           <DeleteIcon>
             <i className="bx bxs-trash" />
           </DeleteIcon>
-        </p>
+        </DeleteModalText>
         <DeleteModalFooter>
           <DeleteModalButton className="confirm" onClick={handleDeletePost}>
             Confirm
