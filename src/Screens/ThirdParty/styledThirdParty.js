@@ -61,7 +61,36 @@ export const SearchButton = styled.button`
 
 export const ImagesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 `;
 
-export const ImageCard = styled.div``;
+export const ImageCard = styled.div`
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  height: fit-content;
+`;
+
+export const CardImage = styled.img`
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+export const CardImageDetails = styled.div`
+  display: flex;
+  padding: 0.5rem;
+`;
+
+export const CardImageUser = styled.div`
+  img {
+    border-radius: 100%;
+  }
+
+  h3 {
+    margin: 0;
+    color: ${({ theme }) => theme.colors.titleColor};
+  }
+`;
