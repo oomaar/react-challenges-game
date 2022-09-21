@@ -37,7 +37,7 @@ export const Nav = () => {
             <Link to={`/blog`}>Blog</Link>
           </NavLinksListItem>
           <NavLinksListItem onClick={() => setShowMenu(false)}>
-            <Link to={`/`}>Link 3</Link>
+            <Link to={`/third-party`}>Deal with APIs</Link>
           </NavLinksListItem>
           <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/`}>Link 4</Link>
