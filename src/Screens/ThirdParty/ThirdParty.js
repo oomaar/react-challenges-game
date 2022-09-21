@@ -18,8 +18,8 @@ export const ThirdParty = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
-  const searchURL = `https://api.unsplash.com/search/photos?query=${searchTerm}&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
-  const string = `https://api.unsplash.com/photos?client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+  const searchURL = `https://api.unsplash.com/search/photos?query=${searchTerm}&page=1&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+  const string = `https://api.unsplash.com/photos?page=1&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
 
   const search = () => setIsSearching((state) => !state);
 
@@ -73,6 +73,7 @@ export const ThirdParty = () => {
           toggleSearch={toggleSearch}
           onClick={search}
           type="submit"
+          disabled={!toggleSearch}
         >
           search
         </SearchButton>
@@ -92,49 +93,53 @@ export const ThirdParty = () => {
       <ThirdPartyContainer>
         {searchUI}
         <ImagesContainer>
-          {images.map((image) => (
-            <ImageCard key={image.id}>
-              <img
-                src={image.urls.small}
-                alt={`from ${image.user.first_name}`}
-              />
-              <div>
+          {images.length !== 0 ? (
+            images.map((image) => (
+              <ImageCard key={image.id}>
                 <img
-                  src={image.user.profile_image.small}
-                  alt={image.user.name}
+                  src={image.urls.small}
+                  alt={`from ${image.user.first_name}`}
                 />
-                <h3>{image.user.name}</h3>
-                <p>
-                  Date: {format(new Date(image.created_at), "dd MMMM yyyy")}
-                </p>
-              </div>
-              <p>likes: {image.likes}</p>
-              <div>
-                <span>
-                  <i className="bx bxl-instagram" />
-                </span>
-                <a
-                  href={`https://instagram.com/${image.user.instagram_username}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {image.user.instagram_username}
-                </a>
-              </div>
-              <div>
-                <span>
-                  <i className="bx bxl-twitter" />
-                </span>
-                <a
-                  href={`https://twitter.com/${image.user.instagram_username}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {image.user.twitter_username}
-                </a>
-              </div>
-            </ImageCard>
-          ))}
+                <div>
+                  <img
+                    src={image.user.profile_image.small}
+                    alt={image.user.name}
+                  />
+                  <h3>{image.user.name}</h3>
+                  <p>
+                    Date: {format(new Date(image.created_at), "dd MMMM yyyy")}
+                  </p>
+                </div>
+                <p>likes: {image.likes}</p>
+                <div>
+                  <span>
+                    <i className="bx bxl-instagram" />
+                  </span>
+                  <a
+                    href={`https://instagram.com/${image.user.instagram_username}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {image.user.instagram_username}
+                  </a>
+                </div>
+                <div>
+                  <span>
+                    <i className="bx bxl-twitter" />
+                  </span>
+                  <a
+                    href={`https://twitter.com/${image.user.instagram_username}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {image.user.twitter_username}
+                  </a>
+                </div>
+              </ImageCard>
+            ))
+          ) : (
+            <h1>No Search Results</h1>
+          )}
         </ImagesContainer>
       </ThirdPartyContainer>
     );

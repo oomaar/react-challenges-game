@@ -21,7 +21,7 @@ export const SearchInputContainer = styled.form`
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   height: 55px;
-  width: ${({ toggleSearch }) => (toggleSearch ? "500px" : "50px")};
+  width: ${({ toggleSearch }) => (toggleSearch ? "600px" : "50px")};
   transition: ${({ theme }) => theme.transition.fast};
 `;
 
@@ -33,7 +33,7 @@ export const SearchIcon = styled.div`
 
 export const SearchInput = styled.input`
   height: 100%;
-  width: ${({ toggleSearch }) => (toggleSearch ? "100%" : "0%")};
+  width: ${({ toggleSearch }) => (toggleSearch ? "80%" : "0%")};
   color: ${({ theme }) => theme.colors.titleColor};
   outline: 0;
   border: 0;
@@ -47,7 +47,17 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchButton = styled.button``;
+export const SearchButton = styled.button`
+  font-size: 1.3rem;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background: ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.titleColor};
+  transition: ${({ theme }) => theme.transition.slow};
+  opacity: ${({ toggleSearch }) => (toggleSearch ? "1" : "0")};
+`;
 
 export const ImagesContainer = styled.div`
   display: grid;
