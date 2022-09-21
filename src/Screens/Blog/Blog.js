@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BlogDeleteModal } from "./BlogDeleteModal/BlogDeleteModal";
 import { BlogModal } from "./BlogModal/BlogModal";
+import BlogUpdateModal from "./BlogUpdateModal/BlogUpdateModal";
 import {
   BlogAddNewButton,
   BlogContainer,
@@ -15,6 +16,9 @@ import {
 export const Blog = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [updatePostTitle, setUpdatePostTitle] = useState("");
+  const [updatePostBody, setUpdatePostBody] = useState("");
   const [posts, setPosts] = useState([
     {
       title: "Blog Post 1",
@@ -30,6 +34,12 @@ export const Blog = () => {
     setShowDeleteModal(false);
   };
 
+  const handleUpdatePost = (title, body) => {
+    setUpdatePostTitle(title);
+    setUpdatePostBody(body);
+    setShowUpdateModal(true);
+  };
+
   return (
     <BlogContainer>
       <BlogPageHeader>
@@ -40,7 +50,10 @@ export const Blog = () => {
           <BlogPostHeader>
             <BlogPostTitle>{post.title}</BlogPostTitle>
             <BlogPostIcons>
-              <i className="bx bx-edit-alt" />
+              <i
+                className="bx bx-edit-alt"
+                onClick={() => handleUpdatePost(post.title, post.body)}
+              />
               <i
                 className="bx bxs-trash"
                 onClick={() => setShowDeleteModal(true)}
@@ -50,22 +63,25 @@ export const Blog = () => {
           <BlogPostBody>{post.body}</BlogPostBody>
         </BlogPostContainer>
       ))}
-      {/*
-      <h1>
-        Header: left is bolg title and right is edit or delete or (show
-        less/show more)
-      </h1>
-      <h1>Body: simply the blogs body</h1> */}
-      <BlogModal
-        showAddModal={showAddModal}
-        setShowAddModal={setShowAddModal}
-        setPosts={setPosts}
-      />
-      <BlogDeleteModal
-        showDeleteModal={showDeleteModal}
-        setShowDeleteModal={setShowDeleteModal}
-        handleDeletePost={handleDeletePost}
-      />
+      <>
+        <BlogModal
+          showAddModal={showAddModal}
+          setShowAddModal={setShowAddModal}
+          setPosts={setPosts}
+        />
+        <BlogDeleteModal
+          showDeleteModal={showDeleteModal}
+          setShowDeleteModal={setShowDeleteModal}
+          handleDeletePost={handleDeletePost}
+        />
+        <BlogUpdateModal
+          showUpdateModal={showUpdateModal}
+          updatePostTitle={updatePostTitle}
+          updatePostBody={updatePostBody}
+          setShowUpdateModal={setShowUpdateModal}
+          setPosts={setPosts}
+        />
+      </>
     </BlogContainer>
   );
 };
