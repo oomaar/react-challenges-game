@@ -26,7 +26,7 @@ export const ThirdParty = () => {
   const [pagesCount, setPagesCount] = useState(2);
   const [pageNumber, setPageNumber] = useState(1);
 
-  const searchURL = `https://api.unsplash.com/search/photos?query=${searchTerm}&page=${pageNumber}&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+  const searchURL = `https://api.unsplash.com/search/photos?query=${searchTerm}&per_page=9&page=${pageNumber}&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
   const defaultURL = `https://api.unsplash.com/photos?page=${pageNumber}&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
 
   const search = () => setIsSearching((state) => !state);
