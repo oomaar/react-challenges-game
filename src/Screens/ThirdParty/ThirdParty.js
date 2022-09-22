@@ -12,7 +12,10 @@ import {
   CardImage,
   CardImageUser,
   CardImageDetails,
+  CardImageLinks,
+  CardImageInstagram,
 } from "./styledThirdParty";
+import { Pagination } from "../../Componetns/Pagination/Pagination";
 
 export const ThirdParty = () => {
   const [images, setImages] = useState([]);
@@ -20,33 +23,46 @@ export const ThirdParty = () => {
   const [toggleSearch, setToggleSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [pagesCount, setPagesCount] = useState(2);
+  const [pageNumber, setPageNumber] = useState(1);
 
-  const searchURL = `https://api.unsplash.com/search/photos?query=${searchTerm}&page=1&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
-  const string = `https://api.unsplash.com/photos?page=1&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+  const searchURL = `https://api.unsplash.com/search/photos?query=${searchTerm}&page=${pageNumber}&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+  const defaultURL = `https://api.unsplash.com/photos?page=${pageNumber}&client_id=${process.env.REACT_APP_ACCESS_KEY}`;
 
   const search = () => setIsSearching((state) => !state);
+
+  //   NOTESSSSS: https://unsplash.com/documentation#list-photos
 
   const getSearchResponse = async () => {
     const response = await fetch(`${searchURL}`);
     const data = await response.json();
     setImages(data.results);
     setLoading(false);
+    setPagesCount(data.total_pages);
   };
 
   useEffect(() => {
     setLoading(true);
     getSearchResponse();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSearching]);
+  }, [isSearching, pageNumber]);
 
   useEffect(() => {
     const getResponse = async () => {
       setLoading(true);
-      const response = await fetch(`${string}`);
+      const response = await fetch(`${defaultURL}`);
       const data = await response.json();
       setImages(data);
       setLoading(false);
       setToggleSearch(false);
+      console.log(
+        "🚀 ~ file: ThirdParty.js ~ line 54 ~ getResponse ~ data",
+        response.per_page
+      );
+      console.log(
+        "🚀 ~ file: ThirdParty.js ~ line 51 ~ getResponse ~ data",
+        data
+      );
     };
 
     getResponse();
@@ -113,31 +129,23 @@ export const ThirdParty = () => {
                     <h3>{image.user.name}</h3>
                     <p>{format(new Date(image.created_at), "dd MMMM yyyy")}</p>
                   </CardImageUser>
-                  <p>likes: {image.likes}</p>
-                  <div>
+                  <CardImageLinks>
                     <span>
-                      <i className="bx bxl-instagram" />
+                      <i className="bx bxs-heart" /> {image.likes}
                     </span>
-                    <a
-                      href={`https://instagram.com/${image.user.instagram_username}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {image.user.instagram_username}
-                    </a>
-                  </div>
-                  <div>
-                    <span>
-                      <i className="bx bxl-twitter" />
-                    </span>
-                    <a
-                      href={`https://twitter.com/${image.user.instagram_username}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {image.user.twitter_username}
-                    </a>
-                  </div>
+                    <CardImageInstagram>
+                      <a
+                        href={`https://instagram.com/${image.user.instagram_username}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>
+                          <i className="bx bxl-instagram" />
+                        </span>
+                        {image.user.instagram_username}
+                      </a>
+                    </CardImageInstagram>
+                  </CardImageLinks>
                 </CardImageDetails>
               </ImageCard>
             ))
@@ -145,6 +153,11 @@ export const ThirdParty = () => {
             <h1>No Search Results</h1>
           )}
         </ImagesContainer>
+        <Pagination
+          pagesCount={pagesCount}
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+        />
       </ThirdPartyContainer>
     );
   }

@@ -61,8 +61,12 @@ export const SearchButton = styled.button`
 
 export const ImagesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  /* columns: 3;
+  column-gap: 1rem;
+  width: 80%;
+  margin: 0 auto; */
 `;
 
 export const ImageCard = styled.div`
@@ -92,5 +96,35 @@ export const CardImageUser = styled.div`
   h3 {
     margin: 0;
     color: ${({ theme }) => theme.colors.titleColor};
+  }
+`;
+
+export const CardImageLinks = styled.div`
+  color: ${({ theme }) => theme.colors.titleColor};
+  margin-left: auto;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+  }
+
+  .bxs-heart {
+    color: ${({ theme }) => theme.colors.alert};
+    font-size: 1.3rem;
+  }
+`;
+
+export const CardImageInstagram = styled.div`
+  span {
+    color: ${({ theme }) => theme.colors.warning};
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: ${({ theme }) => theme.colors.titleColor};
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
   }
 `;
