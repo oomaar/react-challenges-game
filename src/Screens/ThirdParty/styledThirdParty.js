@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lgScreen, mdScreen, xlScreen } from "../../Global/GlobalStyles";
 
 export const ThirdPartyContainer = styled.div``;
 
@@ -63,10 +64,14 @@ export const ImagesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  /* columns: 3;
-  column-gap: 1rem;
-  width: 80%;
-  margin: 0 auto; */
+
+  @media screen and (max-width: ${xlScreen}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: ${lgScreen}) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ImageCard = styled.div`
@@ -75,6 +80,11 @@ export const ImageCard = styled.div`
   flex-direction: column;
   border-radius: 0.5rem;
   height: fit-content;
+
+  @media screen and (max-width: ${mdScreen}) {
+    width: 290px;
+    margin: 0 auto;
+  }
 `;
 
 export const CardImage = styled.img`
