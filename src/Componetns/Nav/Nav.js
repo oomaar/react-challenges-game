@@ -7,6 +7,7 @@ import {
   NavLinksListItem,
   NavNavButton,
   CloseButton,
+  ThemeIcon,
 } from "./styledNav";
 
 export const Nav = () => {
@@ -41,6 +42,12 @@ export const Nav = () => {
           </NavLinksListItem>
           <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/`}>Link 4</Link>
+          </NavLinksListItem>
+          <NavLinksListItem>
+            <ThemeIcon>
+              <i className="bx bxs-sun" />
+              <i className="bx bx-moon" />
+            </ThemeIcon>
           </NavLinksListItem>
         </NavLinksList>
       </NavNavbar>

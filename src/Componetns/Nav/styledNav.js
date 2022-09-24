@@ -125,3 +125,8 @@ export const NavLinksListItem = styled.li`
     }
   }
 `;
+
+export const ThemeIcon = styled.div`
+  cursor: pointer;
+  font-size: 1.4rem;
+`;
