@@ -55,7 +55,8 @@ export const SearchButton = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   background: ${({ theme }) => theme.colors.primaryColor};
-  color: ${({ theme }) => theme.colors.titleColor};
+  color: ${({ theme }) => theme.colors.buttonColor};
+  text-transform: capitalize;
   transition: ${({ theme }) => theme.transition.slow};
   opacity: ${({ toggleSearch }) => (toggleSearch ? "1" : "0")};
 `;
