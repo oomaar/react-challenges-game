@@ -17,13 +17,18 @@ export const ThemeContextProvider = ({ children }) => {
   const toggleDarkTheme = () => setDarkTheme((state) => !state);
 
   useEffect(() => {
-    const darkLocalStorageValue = window.localStorage.getItem("testDark");
+    const darkLocalStorageValue = window.localStorage.getItem(
+      "reactChallengeDarkValue"
+    );
     darkLocalStorageValue !== null &&
       setDarkTheme(JSON.parse(darkLocalStorageValue));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("testDark", JSON.stringify(darkTheme));
+    window.localStorage.setItem(
+      "reactChallengeDarkValue",
+      JSON.stringify(darkTheme)
+    );
   }, [darkTheme]);
 
   return (
