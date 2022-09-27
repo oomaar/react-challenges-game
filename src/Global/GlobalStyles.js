@@ -36,6 +36,32 @@ export const theme = {
   },
 };
 
+export const lightTheme = {
+  colors: {
+    titleColor: "#6c7176",
+    textColor: "#535253",
+    primaryColor: "#1d9bf0",
+    borderColor: "#1f1f1f",
+    bodyColor: "#cdcdcd",
+    alert: `#d51e55`,
+    warning: `#f2b77e`,
+    success: `#2bac76`,
+    scrollBarColor: `hsl(219, 98%, 98%)`,
+    scrollBarThumb: `hsl(219, 99%, 79%)`,
+    scrollBarThumbHover: `hsl(219, 99%, 85%)`,
+  },
+  transition: {
+    fast: `all 0.3s ease-in`,
+    medium: `all 0.4s ease-in`,
+    slow: `all 0.5s ease-in`,
+  },
+  index: {
+    top: "1000",
+    middle: "500",
+    bottom: "100",
+  },
+};
+
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
