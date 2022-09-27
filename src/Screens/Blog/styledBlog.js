@@ -18,13 +18,12 @@ export const BlogAddNewButton = styled.button`
   letter-spacing: 0.02rem;
   font-weight: 600;
   background-color: ${({ theme }) => theme.colors.success};
-  color: ${({ theme }) => theme.colors.titleColor};
+  color: ${({ theme }) => theme.colors.buttonColor};
   transition: ${({ theme }) => theme.transition.fast};
 
   :hover {
     transform: scale(1.05);
     background-color: ${({ theme }) => theme.colors.titleColor};
-    color: #000;
   }
 
   @media screen and (max-width: ${xlScreen}) {

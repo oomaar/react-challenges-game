@@ -23,7 +23,7 @@ export const BlogModalBackdrop = styled.div`
 
 export const BlogModalForm = styled.form`
   position: relative;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: ${({ theme }) => theme.colors.formColor};
   padding: 1rem;
   border-radius: 0.3rem;
   width: 500px;
@@ -119,12 +119,11 @@ export const BlogSubmitButton = styled.button`
   letter-spacing: 0.02rem;
   font-weight: 600;
   background-color: ${({ theme }) => theme.colors.success};
-  color: ${({ theme }) => theme.colors.titleColor};
+  color: ${({ theme }) => theme.colors.buttonColor};
   transition: ${({ theme }) => theme.transition.fast};
 
   :hover {
     transform: scale(1.05);
     background-color: ${({ theme }) => theme.colors.titleColor};
-    color: #000;
   }
 `;

@@ -18,6 +18,7 @@ export const theme = {
     borderColor: "#1d2022",
     bodyColor: "#000000",
     buttonColor: "#fff",
+    formColor: "rgba(0, 0, 0, 0.6)",
     alert: `#d51e55`,
     warning: `#f2b77e`,
     success: `#2bac76`,
@@ -45,6 +46,7 @@ export const lightTheme = {
     borderColor: "#1f1f1f",
     bodyColor: "#cdcdcd",
     buttonColor: "#fff",
+    formColor: "rgba(255, 255, 255, 0.6)",
     alert: `#d51e55`,
     warning: `#f2b77e`,
     success: `#2bac76`,
@@ -101,6 +103,7 @@ export const GlobalStyle = createGlobalStyle`
   button {
     outline: 0;
     border: 0;
+    cursor: pointer;
   }
 
     /* Scroll Bar */

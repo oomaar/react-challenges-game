@@ -24,7 +24,7 @@ export const DeleteModalBackDrop = styled.div`
 
 export const DeleteModalBody = styled.div`
   position: relative;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: ${({ theme }) => theme.colors.formColor};
   padding: 1rem;
   border-radius: 0.3rem;
   width: 500px;
@@ -39,8 +39,9 @@ export const DeleteModalText = styled.div`
 `;
 
 export const DeleteIcon = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.titleColor};
+  border: 1px solid ${({ theme }) => theme.colors.alert};
   border-radius: 100%;
+  color: ${({ theme }) => theme.colors.alert};
   width: 50px;
   height: 50px;
   display: flex;
@@ -63,10 +64,9 @@ export const DeleteModalButton = styled.button`
   font-size: 1.1rem;
   border-radius: 0.3rem;
   transition: ${({ theme }) => theme.transition.fast};
-  color: ${({ theme }) => theme.colors.titleColor};
-
   &.confirm {
     background: ${({ theme }) => theme.colors.alert};
+    color: ${({ theme }) => theme.colors.buttonColor};
 
     :hover {
       background: transparent;
@@ -77,6 +77,7 @@ export const DeleteModalButton = styled.button`
 
   &.cancel {
     background: transparent;
+    color: ${({ theme }) => theme.colors.titleColor};
 
     :hover {
       color: ${({ theme }) => theme.colors.success};
