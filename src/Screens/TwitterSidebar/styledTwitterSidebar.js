@@ -73,6 +73,7 @@ export const SidebarLinksListItem = styled.li`
 
   :hover {
     background-color: ${({ theme }) => theme.colors.borderColor};
+    color: ${({ theme }) => theme.colors.buttonColor};
   }
 `;
 
@@ -81,7 +82,7 @@ export const TweetButton = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.titleColor};
+  color: ${({ theme }) => theme.colors.buttonColor};
   background: ${({ theme }) => theme.colors.primaryColor};
   transition: ${({ theme }) => theme.transition.fast};
   border: 0;
@@ -93,7 +94,7 @@ export const TweetButton = styled.button`
 
   :hover {
     background: ${({ theme }) => theme.colors.warning};
-    color: ${({ theme }) => theme.colors.bodyColor};
+    color: ${({ theme }) => theme.colors.buttonColor};
   }
 `;
 
@@ -109,6 +110,7 @@ export const SidebarProfile = styled.div`
 
   :hover {
     background: ${({ theme }) => theme.colors.borderColor};
+    color: ${({ theme }) => theme.colors.buttonColor};
   }
 `;
 
