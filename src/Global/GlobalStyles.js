@@ -38,7 +38,7 @@ export const theme = {
 
 export const lightTheme = {
   colors: {
-    titleColor: "#6c7176",
+    titleColor: "#000",
     textColor: "#535253",
     primaryColor: "#1d9bf0",
     borderColor: "#1f1f1f",
@@ -94,6 +94,11 @@ export const GlobalStyle = createGlobalStyle`
       color: ${({ theme }) => theme.colors.textColor};
 
     }
+  }
+
+  button {
+    outline: 0;
+    border: 0;
   }
 
     /* Scroll Bar */
