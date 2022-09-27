@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTheme, useThemeUpdate } from "../../Context/ThemeContext";
 import {
   NavNavbar,
   NavLogo,
@@ -12,6 +13,8 @@ import {
 
 export const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const darkThemeValue = useTheme();
+  const toggleTheme = useThemeUpdate();
 
   return (
     <div>
@@ -45,8 +48,11 @@ export const Nav = () => {
           </NavLinksListItem>
           <NavLinksListItem>
             <ThemeIcon>
-              <i className="bx bxs-sun" />
-              <i className="bx bx-moon" />
+              {darkThemeValue ? (
+                <i className="bx bxs-sun" onClick={toggleTheme} />
+              ) : (
+                <i className="bx bx-moon" onClick={toggleTheme} />
+              )}
             </ThemeIcon>
           </NavLinksListItem>
         </NavLinksList>
