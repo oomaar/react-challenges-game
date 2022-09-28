@@ -1,4 +1,8 @@
 import { useState } from "react";
+import {
+  useBlogTitle,
+  useBlogTitleChange,
+} from "../../../Context/BlogTitleContext";
 import setHeight from "../../../utils/setTextAreaHeight";
 import {
   BlogFormFooter,
@@ -15,14 +19,15 @@ import {
   BlogUpdateModalContainer,
 } from "./styledBlogUpdateModal";
 
-const BlogUpdateModal = ({
+export const BlogUpdateModal = ({
   showUpdateModal,
   updatePostTitle,
   updatePostBody,
   setShowUpdateModal,
   setPosts,
 }) => {
-  const [postTitle, setPostTitle] = useState(updatePostTitle);
+  const postTitle = useBlogTitle();
+  const setPostTitle = useBlogTitleChange();
   const [postBody, setPostBody] = useState(updatePostBody);
 
   const newPost = [
@@ -38,7 +43,7 @@ const BlogUpdateModal = ({
   };
 
   const onTitleInputChange = (event) => {
-    setPostTitle(event.target.value);
+    setPostTitle(event);
   };
 
   const onBodyInputChange = (event) => {
@@ -81,5 +86,3 @@ const BlogUpdateModal = ({
     </BlogUpdateModalContainer>
   );
 };
-
-export default BlogUpdateModal;

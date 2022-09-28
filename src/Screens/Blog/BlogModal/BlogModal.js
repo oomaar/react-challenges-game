@@ -1,4 +1,8 @@
 import { useState } from "react";
+import {
+  useBlogTitle,
+  useBlogTitleChange,
+} from "../../../Context/BlogTitleContext";
 import setHeight from "../../../utils/setTextAreaHeight";
 import {
   BlogFormFooter,
@@ -15,7 +19,8 @@ import {
 } from "./styledBlogModal";
 
 export const BlogModal = ({ showAddModal, setShowAddModal, setPosts }) => {
-  const [postTitle, setPostTitle] = useState("");
+  const postTitle = useBlogTitle();
+  const setPostTitle = useBlogTitleChange();
   const [postBody, setPostBody] = useState("");
   const [formValidation, setFormValidation] = useState({
     error: false,
@@ -54,7 +59,7 @@ export const BlogModal = ({ showAddModal, setShowAddModal, setPosts }) => {
   };
 
   const onTitleInputChange = (event) => {
-    setPostTitle(event.target.value);
+    setPostTitle(event);
     resetFormValidation();
   };
 

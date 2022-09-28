@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BlogDeleteModal } from "./BlogDeleteModal/BlogDeleteModal";
 import { BlogModal } from "./BlogModal/BlogModal";
-import BlogUpdateModal from "./BlogUpdateModal/BlogUpdateModal";
+import { BlogUpdateModal } from "./BlogUpdateModal/BlogUpdateModal";
 import {
   BlogAddNewButton,
   BlogContainer,
