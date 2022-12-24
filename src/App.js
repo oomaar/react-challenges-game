@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Nav } from "./Componetns";
 import { Layout } from "./Global/Layout/Layout";
-import { Blog, Home, ThirdParty, TwitterSidebar } from "./Screens";
+import { Blog, Home, ReactGym, ThirdParty, TwitterSidebar } from "./Screens";
 
 export const App = () => {
   return (
@@ -28,6 +28,7 @@ export const App = () => {
             <Route path="/twitter" element={<TwitterSidebar />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/third-party" element={<ThirdParty />} />
+            <Route path="/react-gym" element={<ReactGym />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
