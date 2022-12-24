@@ -44,7 +44,7 @@ export const Nav = () => {
             <Link to={`/third-party`}>Deal with APIs</Link>
           </NavLinksListItem>
           <NavLinksListItem onClick={() => setShowMenu(false)}>
-            <Link to={`/`}>Link 4</Link>
+            <Link to={`/react-gym`}>React GYM</Link>
           </NavLinksListItem>
           <NavLinksListItem>
             <ThemeIcon>
