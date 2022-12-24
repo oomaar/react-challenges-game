@@ -15,8 +15,8 @@ export const ReactGym = () => {
       <CounterContainer>
         <CounterText>{count}</CounterText>
         <CounterButtons>
-          <CounterButton>+</CounterButton>
           <CounterButton>-</CounterButton>
+          <CounterButton>+</CounterButton>
         </CounterButtons>
       </CounterContainer>
     </GYMContainer>
