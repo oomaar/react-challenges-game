@@ -1,11 +1,5 @@
 import styled from "styled-components/macro";
 
-export const CounterContainer = styled.div`
-  display: grid;
-  place-items: center;
-  padding: 1rem 0rem;
-`;
-
 export const CounterText = styled.p`
   color: #fff;
   font-weight: 700;
