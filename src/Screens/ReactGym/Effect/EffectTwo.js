@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ChildContainer } from "../styledReactGym";
 
 export const EffectTwo = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -17,5 +18,10 @@ export const EffectTwo = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <div>{windowWidth}</div>;
+  return (
+    <ChildContainer>
+      <h1>useEffect Example 2</h1>
+      <div>screen width = {windowWidth}</div>
+    </ChildContainer>
+  );
 };

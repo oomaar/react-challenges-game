@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ChildContainer } from "../styledReactGym";
 import { PostsContainer } from "./styledEffectOne";
 
 export const EffectOne = () => {
@@ -18,13 +19,16 @@ export const EffectOne = () => {
   }, [resourceType]);
 
   return (
-    <PostsContainer>
-      <button onClick={() => setResourceType("posts")}>Posts</button>
-      <button onClick={() => setResourceType("users")}>Users</button>
-      <button onClick={() => setResourceType("comments")}>Comments</button>
-      {items.map((item, index) => {
-        return <pre key={index}>{JSON.stringify(item)}</pre>;
-      })}
-    </PostsContainer>
+    <ChildContainer>
+      <h1>useEffect Example 1</h1>
+      <PostsContainer>
+        <button onClick={() => setResourceType("posts")}>Posts</button>
+        <button onClick={() => setResourceType("users")}>Users</button>
+        <button onClick={() => setResourceType("comments")}>Comments</button>
+        {items.map((item, index) => {
+          return <pre key={index}>{JSON.stringify(item)}</pre>;
+        })}
+      </PostsContainer>
+    </ChildContainer>
   );
 };

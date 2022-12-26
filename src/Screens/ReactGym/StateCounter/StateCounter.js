@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { ChildContainer } from "../styledReactGym";
 import {
   CounterButton,
   CounterButtons,
-  CounterContainer,
   CounterText,
 } from "./styledStateCounter";
 
@@ -27,12 +27,13 @@ export const StateCounter = () => {
   }
 
   return (
-    <CounterContainer>
+    <ChildContainer>
+      <h1>useState Training</h1>
       <CounterText>{count}</CounterText>
       <CounterButtons>
         <CounterButton onClick={decrementCount}>-</CounterButton>
         <CounterButton onClick={incrementCount}>+</CounterButton>
       </CounterButtons>
-    </CounterContainer>
+    </ChildContainer>
   );
 };
