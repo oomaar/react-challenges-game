@@ -1,10 +1,8 @@
 import styled from "styled-components/macro";
+import { flexCol } from "../../Global/GlobalStyles";
 
 export const GYMContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  ${flexCol};
   gap: 2rem 0rem;
 `;
 

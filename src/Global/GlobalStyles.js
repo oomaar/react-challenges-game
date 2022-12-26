@@ -128,3 +128,12 @@ export const GlobalStyle = createGlobalStyle`
       color: #000;
     }
 `;
+
+export function flexCol() {
+  return `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `;
+}
