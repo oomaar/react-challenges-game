@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { lgScreen, mdScreen, xlScreen } from "../../Global/GlobalStyles";
 
 export const ThirdPartyContainer = styled.div``;
@@ -12,7 +12,7 @@ export const SearchContainer = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const SearchInputContainer = styled.form`
+export const SearchInputContainer = styled.form<{ toggleSearch: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@ export const SearchIcon = styled.div`
   cursor: pointer;
 `;
 
-export const SearchInput = styled.input`
+export const SearchInput = styled.input<{ toggleSearch: boolean }>`
   height: 100%;
   width: ${({ toggleSearch }) => (toggleSearch ? "80%" : "0%")};
   color: ${({ theme }) => theme.colors.titleColor};
@@ -48,7 +48,7 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchButton = styled.button`
+export const SearchButton = styled.button<{ toggleSearch: boolean }>`
   font-size: 1.3rem;
   border: 0;
   outline: 0;

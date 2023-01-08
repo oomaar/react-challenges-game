@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { lgScreen, NavbarHeight, xlScreen } from "../../Global/GlobalStyles";
 
 export const NavNavbar = styled.nav`
@@ -73,7 +73,7 @@ export const CloseButton = styled.div`
   }
 `;
 
-export const NavLinksList = styled.ul`
+export const NavLinksList = styled.ul<{ showMenu: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;

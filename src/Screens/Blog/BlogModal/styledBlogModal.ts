@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
-export const BlogModalContainer = styled.div`
+export const BlogModalContainer = styled.div<{ showAddModal: boolean }>`
   position: fixed;
   inset: 0;
   z-index: ${({ theme }) => theme.index.top};
@@ -69,7 +69,7 @@ export const BlogModalInputLabel = styled.label`
   transition: ${({ theme }) => theme.transition.fast};
 `;
 
-export const BlogModalFormInput = styled.input`
+export const BlogModalFormInput = styled.input<{ formValidation: boolean }>`
   border: 1px solid
     ${({ formValidation, theme }) =>
       formValidation ? theme.colors.alert : theme.colors.primaryColor};
@@ -87,7 +87,9 @@ export const BlogModalFormInput = styled.input`
   }
 `;
 
-export const BlogModalFormTextArea = styled.textarea`
+export const BlogModalFormTextArea = styled.textarea<{
+  formValidation: boolean;
+}>`
   outline: 0;
   border: 1px solid
     ${({ formValidation, theme }) =>

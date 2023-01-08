@@ -1,4 +1,4 @@
-export default function setHeight(element, defaultHeight) {
+export default function setHeight(element: any, defaultHeight: string) {
   if (element) {
     const target = element.target ? element.target : element;
     target.style.height = defaultHeight;

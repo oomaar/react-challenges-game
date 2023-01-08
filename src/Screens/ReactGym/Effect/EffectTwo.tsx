@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ChildContainer } from "../styledReactGym";
 
 export const EffectTwo = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
   // Return in the useEffect is used to clean up what happened in the last mount,
   // Return is called first then whatever inside the block of the useEffect will be executed

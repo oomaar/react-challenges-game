@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { lgScreen, xlScreen } from "../../Global/GlobalStyles";
 
 export const BlogContainer = styled.div``;

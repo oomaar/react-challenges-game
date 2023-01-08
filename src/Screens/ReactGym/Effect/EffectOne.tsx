@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChildContainer } from "../styledReactGym";
+import { EffectOneStateType, ResourceType } from "./EffectTypes";
 import { PostsContainer } from "./styledEffectOne";
 
 export const EffectOne = () => {
@@ -9,8 +10,8 @@ export const EffectOne = () => {
   // the value is still false, the component will rerender but the useEffect won't run again until the value changes to
   // True again
 
-  const [resourceType, setResourceType] = useState("posts");
-  const [items, setItems] = useState([]);
+  const [resourceType, setResourceType] = useState<ResourceType>("Posts");
+  const [items, setItems] = useState<EffectOneStateType>([]);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
@@ -22,9 +23,9 @@ export const EffectOne = () => {
     <ChildContainer>
       <h1>useEffect Example 1</h1>
       <PostsContainer>
-        <button onClick={() => setResourceType("posts")}>Posts</button>
-        <button onClick={() => setResourceType("users")}>Users</button>
-        <button onClick={() => setResourceType("comments")}>Comments</button>
+        <button onClick={() => setResourceType("Posts")}>Posts</button>
+        <button onClick={() => setResourceType("Users")}>Users</button>
+        <button onClick={() => setResourceType("Comments")}>Comments</button>
         {items.map((item, index) => {
           return <pre key={index}>{JSON.stringify(item)}</pre>;
         })}
