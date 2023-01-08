@@ -16,9 +16,10 @@ import {
   CardImageInstagram,
 } from "./styledThirdParty";
 import { Pagination } from "../../Componetns/Pagination/Pagination";
+import { ImagesType } from "./ThirdPartyTypes";
 
 export const ThirdParty = () => {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<ImagesType>([]);
   const [loading, setLoading] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -55,21 +56,13 @@ export const ThirdParty = () => {
       setImages(data);
       setLoading(false);
       setToggleSearch(false);
-      console.log(
-        "🚀 ~ file: ThirdParty.js ~ line 54 ~ getResponse ~ data",
-        response.per_page
-      );
-      console.log(
-        "🚀 ~ file: ThirdParty.js ~ line 51 ~ getResponse ~ data",
-        data
-      );
     };
 
     getResponse();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const inputElement = useRef(null);
+  const inputElement = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     toggleSearch && inputElement.current?.focus();
