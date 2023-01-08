@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { mdScreen, NavbarHeight } from "../../Global/GlobalStyles";
 
 export const TwitterAside = styled.aside`
@@ -136,7 +136,9 @@ export const SidebarProfileTextContainer = styled.div`
   }
 `;
 
-export const SidebarProfileOptions = styled.div`
+export const SidebarProfileOptions = styled.div<{
+  showProfileOptions: boolean;
+}>`
   position: fixed;
   top: unset;
   bottom: 5rem;

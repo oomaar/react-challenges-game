@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, DefaultTheme } from "styled-components";
 
 // View Ports
 export const xlScreen = `1024px`;
@@ -10,7 +10,7 @@ export const xsScreen = `320px`;
 // Constants
 export const NavbarHeight = `70px`;
 
-export const theme = {
+export const theme: DefaultTheme = {
   colors: {
     titleColor: "#e7e9ea",
     textColor: "#6c7176",

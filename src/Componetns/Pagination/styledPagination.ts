@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const PaginationContainer = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const PaginationContainer = styled.div`
   justify-content: flex-end;
 `;
 
-export const PaginationButton = styled.button`
+export const PaginationButton = styled.button<{ active: boolean }>`
   border: 0;
   outline: 0;
   color: ${({ theme }) => theme.colors.titleColor};

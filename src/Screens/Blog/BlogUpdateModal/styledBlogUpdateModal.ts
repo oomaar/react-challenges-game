@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
-export const BlogUpdateModalContainer = styled.div`
+export const BlogUpdateModalContainer = styled.div<{
+  showUpdateModal: boolean;
+}>`
   position: fixed;
   inset: 0;
   z-index: ${({ theme }) => theme.index.top};

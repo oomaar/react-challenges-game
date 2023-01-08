@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
-export const DeleteModalContainer = styled.div`
+export const DeleteModalContainer = styled.div<{ showDeleteModal: boolean }>`
   position: fixed;
   inset: 0;
   z-index: ${({ theme }) => theme.index.top};
