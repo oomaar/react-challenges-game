@@ -4,7 +4,7 @@ import { App } from "./App";
 import { GlobalStyle } from "./Global/GlobalStyles";
 import { Providers } from "./Global/Providers/Providers";
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <Providers>
