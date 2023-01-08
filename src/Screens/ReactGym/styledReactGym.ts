@@ -19,7 +19,7 @@ export const ChildContainer = styled.div`
   width: 100%;
 
   h1 {
-    place-self: start;
     margin-left: 1rem;
+    color: ${({ theme }) => theme.colors.success};
   }
 `;
