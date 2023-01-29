@@ -21,7 +21,7 @@ export const EffectOne = () => {
 
   return (
     <ChildContainer>
-      <h1>useEffect Example 1</h1>
+      <h1>useEffect Example 1 (Code Commented)</h1>
       <PostsContainer>
         {/* <button onClick={() => setResourceType("Posts")}>Posts</button>
         <button onClick={() => setResourceType("Users")}>Users</button>
