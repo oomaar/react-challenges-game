@@ -1,19 +1,55 @@
+import { PropsWithChildren, useState } from "react";
 import { ChildContainer } from "../styledReactGym";
-import { PortalBody, PortalHeader } from "./styled-Portal";
+import {
+  ModalContainer,
+  Overlay,
+  PortalBody,
+  PortalButton,
+  PortalHeader,
+} from "./styled-Portal";
 
 export const Portal = () => {
+  const [showModal, setShowModal] = useState(false);
+  const onClose = () => setShowModal(false);
+  const onOpen = () => setShowModal(true);
+
   return (
     <ChildContainer>
       <PortalHeader>
-        <button>Dummy Button</button>
+        <PortalButton onClick={onOpen}>Dummy Button</PortalButton>
         <h1>React Portal</h1>
-        <button>Open Modal</button>
+        <PortalButton onClick={onOpen}>Open Modal</PortalButton>
       </PortalHeader>
+
       <PortalBody>
+        <Modal isModalOpen={showModal} onClose={onClose}>
+          <h1>Fancy Modal</h1>
+        </Modal>
         <h1>Just some dummy content</h1>
         {dummyText()}
       </PortalBody>
     </ChildContainer>
+  );
+};
+
+type ModalProps = PropsWithChildren<{
+  isModalOpen: boolean;
+  onClose: () => void;
+}>;
+
+const Modal = (props: ModalProps) => {
+  const { children, isModalOpen, onClose } = props;
+
+  if (!isModalOpen) return null;
+
+  return (
+    <>
+      <Overlay />
+      <ModalContainer>
+        <PortalButton onClick={onClose}>Close</PortalButton>
+        {children}
+      </ModalContainer>
+    </>
   );
 };
 
