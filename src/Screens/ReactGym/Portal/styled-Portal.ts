@@ -23,7 +23,7 @@ export const PortalBody = styled.div`
   z-index: 1;
 `;
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled.div<{ isModalOpen: boolean }>`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -33,7 +33,7 @@ export const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled.div<{ isModalOpen: boolean }>`
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
