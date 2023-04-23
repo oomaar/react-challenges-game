@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useLayoutEffect, useState } from "react";
 import { ChildContainer } from "../styledReactGym";
 import {
   ModalContainer,
@@ -7,6 +7,7 @@ import {
   PortalButton,
   PortalHeader,
 } from "./styled-Portal";
+import { createPortal } from "react-dom";
 
 export const Portal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -39,17 +40,38 @@ type ModalProps = PropsWithChildren<{
 
 const Modal = (props: ModalProps) => {
   const { children, isModalOpen, onClose } = props;
+  const [portalElement, setPortalElement] = useState<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    const portalElement = document.createElement("div");
+    document.body.appendChild(portalElement);
+    setPortalElement(portalElement);
+
+    return () => {
+      document.body.removeChild(portalElement);
+    };
+  }, [setPortalElement]);
 
   if (!isModalOpen) return null;
 
   return (
-    <>
-      <Overlay />
-      <ModalContainer>
-        <PortalButton onClick={onClose}>Close</PortalButton>
-        {children}
-      </ModalContainer>
-    </>
+    portalElement &&
+    createPortal(
+      <>
+        <Overlay onClick={onClose} />
+        <ModalContainer>
+          <PortalButton onClick={onClose}>Close</PortalButton>
+          <PortalButton onClick={() => console.log("test click 2")}>
+            Test Click 2
+          </PortalButton>
+          <PortalButton onClick={() => console.log("test click 3")}>
+            Test Click 3
+          </PortalButton>
+          {children}
+        </ModalContainer>
+      </>,
+      portalElement
+    )
   );
 };
 
