@@ -18,6 +18,9 @@ import {
 import { Pagination } from "../../Componetns/Pagination/Pagination";
 import { ImagesType } from "./ThirdPartyTypes";
 
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
+
 export const ThirdParty = () => {
   const [images, setImages] = useState<ImagesType>([]);
   const [loading, setLoading] = useState(false);
@@ -68,6 +71,17 @@ export const ThirdParty = () => {
     toggleSearch && inputElement.current?.focus();
   }, [toggleSearch]);
 
+  const createPDF = async () => {
+    const pdf = new jsPDF("portrait", "pt", "a4");
+    const data = await html2canvas(document.getElementById("PDF")!);
+    const img = data.toDataURL("image/png");
+    const imgProperties = pdf.getImageProperties(img);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+    pdf.addImage(img, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("shipping_label.pdf");
+  };
+
   const searchUI = (
     <SearchContainer onSubmit={(e) => e.preventDefault()}>
       <SearchInputContainer toggleSearch={toggleSearch}>
@@ -103,7 +117,15 @@ export const ThirdParty = () => {
     );
   } else {
     return (
-      <ThirdPartyContainer>
+      <ThirdPartyContainer id="PDF">
+        <button
+          onClick={() => {
+            createPDF();
+            console.log("Logged into the console");
+          }}
+        >
+          Export PDF
+        </button>
         {searchUI}
         <ImagesContainer>
           {images.length !== 0 ? (

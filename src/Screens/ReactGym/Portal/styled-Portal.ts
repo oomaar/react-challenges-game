@@ -23,19 +23,38 @@ export const PortalBody = styled.div`
   z-index: 1;
 `;
 
-export const ModalContainer = styled.div<{ isModalOpen: boolean }>`
+export const ModalContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  inset: 0;
+  z-index: 1000;
+`;
+
+export const ModalForm = styled.div<{
+  isModalOpen: boolean;
+  width?: number;
+  height?: number;
+}>`
+  position: relative;
+  height: ${({ height }) => (height !== undefined ? `${height}px` : `550px`)};
+  width: ${({ width }) => (width !== undefined ? `${width}px` : `550px`)};
   z-index: 1000;
   padding: 50px;
+  align-items: center;
   background: ${({ theme }) => theme.colors.borderColor};
-  transform: translate(-50%, -50%);
+  transform: ${({ isModalOpen }) =>
+    isModalOpen ? "translateY(0px)" : "translateY(-1000000000000vh)"};
+  transition: ${({ theme }) => theme.transition.fast};
 `;
 
 export const Overlay = styled.div<{ isModalOpen: boolean }>`
+  transform: ${({ isModalOpen }) =>
+    isModalOpen ? "translateY(0px)" : "translateY(-1000000000000vh)"};
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
+  transition: ${({ theme }) => theme.transition.medium};
 `;

@@ -1,5 +1,10 @@
 import { PropsWithChildren } from "react";
-import { ModalContainer, Overlay, PortalButton } from "./styled-Portal";
+import {
+  ModalContainer,
+  ModalForm,
+  Overlay,
+  PortalButton,
+} from "./styled-Portal";
 
 type ModalProps = PropsWithChildren<{
   isModalOpen: boolean;
@@ -10,9 +15,9 @@ export const Modal = (props: ModalProps) => {
   const { isModalOpen, onClose, children } = props;
 
   return (
-    <>
+    <ModalContainer>
       <Overlay onClick={onClose} isModalOpen={isModalOpen} />
-      <ModalContainer isModalOpen={isModalOpen}>
+      <ModalForm isModalOpen={isModalOpen}>
         <PortalButton onClick={onClose}>Close</PortalButton>
         <PortalButton onClick={() => console.log("test click 2")}>
           Test Click 2
@@ -21,7 +26,7 @@ export const Modal = (props: ModalProps) => {
           Test Click 3
         </PortalButton>
         {children}
-      </ModalContainer>
-    </>
+      </ModalForm>
+    </ModalContainer>
   );
 };

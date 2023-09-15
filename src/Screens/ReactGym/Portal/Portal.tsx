@@ -1,24 +1,24 @@
-import { useState } from "react";
 import { ChildContainer } from "../styledReactGym";
 import { PortalBody, PortalButton, PortalHeader } from "./styled-Portal";
 import { Modal } from "./Modal";
+import { useModalHelpers } from "./use-modal-helpers";
 
 export const Portal = () => {
-  const [showModal, setShowModal] = useState(false);
-  const onClose = () => setShowModal(false);
-  const onOpen = () => setShowModal(true);
+  const { isModalOpen, modalBodyKey, onClose, onShow } = useModalHelpers();
+
+  // TODO: 1) solve modal problem, test by trying to open the modal now
 
   return (
     <ChildContainer>
       <PortalHeader>
-        <PortalButton onClick={onOpen}>Dummy Button</PortalButton>
+        <PortalButton onClick={onShow}>Dummy Button</PortalButton>
         <h1>React Portal</h1>
-        <PortalButton onClick={onOpen}>Open Modal</PortalButton>
+        <PortalButton onClick={onShow}>Open Modal</PortalButton>
       </PortalHeader>
 
       <PortalBody>
-        <Modal isModalOpen={showModal} onClose={onClose}>
-          <h1>Fancy Modal</h1>
+        <Modal isModalOpen={isModalOpen} onClose={onClose}>
+          <div key={modalBodyKey}>Fancy Modal</div>
         </Modal>
         <h1>Just some dummy content</h1>
         {dummyText()}
