@@ -46,6 +46,9 @@ export const Nav = () => {
           <NavLinksListItem onClick={() => setShowMenu(false)}>
             <Link to={`/react-gym`}>React GYM</Link>
           </NavLinksListItem>
+          <NavLinksListItem onClick={() => setShowMenu(false)}>
+            <Link to={`/javascript`}>Javascript</Link>
+          </NavLinksListItem>
           <NavLinksListItem>
             <ThemeIcon>
               {darkThemeValue ? (
