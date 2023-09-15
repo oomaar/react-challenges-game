@@ -8,6 +8,7 @@ import {
 import { Nav } from "./Componetns";
 import { Layout } from "./Global/Layout/Layout";
 import { Blog, Home, ReactGym, ThirdParty, TwitterSidebar } from "./Screens";
+import { Javascript } from "./Screens/Javascript/Javascript";
 
 export const App = () => {
   return (
@@ -29,6 +30,7 @@ export const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/third-party" element={<ThirdParty />} />
             <Route path="/react-gym" element={<ReactGym />} />
+            <Route path="/javascript" element={<Javascript />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
