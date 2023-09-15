@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { flexCol } from "../../Global/GlobalStyles";
 
 export const JavvascriptContainer = styled.div``;
 
