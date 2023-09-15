@@ -16,6 +16,7 @@ declare module "styled-components" {
       scrollBarColor: string;
       scrollBarThumb: string;
       scrollBarThumbHover: string;
+      containerColor: string;
     };
     transition: {
       fast: string;

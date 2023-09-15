@@ -25,6 +25,7 @@ export const theme: DefaultTheme = {
     scrollBarColor: `hsl(219, 8%, 38%)`,
     scrollBarThumb: `hsl(219, 8%, 26%)`,
     scrollBarThumbHover: `hsl(219, 8%, 20%)`,
+    containerColor: `#181818`,
   },
   transition: {
     fast: `all 0.3s ease-in`,
