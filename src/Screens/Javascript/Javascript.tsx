@@ -8,6 +8,7 @@ import {
 } from "./styled-Javascript";
 import { Grouping } from "./Grouping/Grouping";
 import { useState } from "react";
+import { Mapping } from "./Mapping/Mapping";
 
 export const Javascript = () => {
   type JavascriptExercise = "Grouping" | "Mapping";
@@ -34,6 +35,7 @@ export const Javascript = () => {
       </JavascriptContainerHeader>
       <JavascriptSubContainer>
         {javascriptExercise === "Grouping" && <Grouping />}
+        {javascriptExercise === "Mapping" && <Mapping />}
       </JavascriptSubContainer>
     </JavvascriptContainer>
   );
