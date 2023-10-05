@@ -1,17 +1,40 @@
 import {
   JavaScriptTitle,
   JavvascriptContainer,
-  JavvascriptSubContainer,
+  JavascriptSubContainer,
+  JavascriptContainerHeader,
+  JavascriptContainerHeaderLI,
+  JavascriptContainerHeaderUL,
 } from "./styled-Javascript";
 import { Grouping } from "./Grouping/Grouping";
+import { useState } from "react";
 
 export const Javascript = () => {
+  type JavascriptExercise = "Grouping" | "Mapping";
+
+  const [javascriptExercise, setJavascriptExercise] =
+    useState<JavascriptExercise>("Grouping");
+
   return (
     <JavvascriptContainer>
-      <JavaScriptTitle>Javascript Gym</JavaScriptTitle>
-      <JavvascriptSubContainer>
-        <Grouping />
-      </JavvascriptSubContainer>
+      <JavascriptContainerHeader>
+        <JavaScriptTitle>Javascript Gym</JavaScriptTitle>
+        <JavascriptContainerHeaderUL>
+          <JavascriptContainerHeaderLI>
+            <button onClick={() => setJavascriptExercise("Grouping")}>
+              Grouping
+            </button>
+          </JavascriptContainerHeaderLI>
+          <JavascriptContainerHeaderLI>
+            <button onClick={() => setJavascriptExercise("Mapping")}>
+              Mapping
+            </button>
+          </JavascriptContainerHeaderLI>
+        </JavascriptContainerHeaderUL>
+      </JavascriptContainerHeader>
+      <JavascriptSubContainer>
+        {javascriptExercise === "Grouping" && <Grouping />}
+      </JavascriptSubContainer>
     </JavvascriptContainer>
   );
 };
